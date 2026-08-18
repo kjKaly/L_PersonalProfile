@@ -1,0 +1,204 @@
+/* ----------------------------------------
+   Global Reset & Background 
+---------------------------------------- */
+html {
+    background-color: #e07eaa;
+    padding: 20px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    /* Centers the card vertically and horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+/* ----------------------------------------
+   Card-Style Container (Using the Body tag)
+---------------------------------------- */
+body {
+    background-color: #ffffff;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    color: #374151;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+/* ----------------------------------------
+   Typography & Colors
+---------------------------------------- */
+h1 {
+    font-size: 1.8rem;
+    color: #e07eaa;
+    text-align: center;
+    margin-top: 0;
+}
+
+.clock-container {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: auto;
+    background-color: #e07eaa;
+    color: #ffffff;
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+h2 {
+    font-size: 1.25rem;
+    color: #e07eaa;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    border-left: 4px solid #b10294;
+    padding-left: 12px;
+}
+
+.shortMsg {
+    color: #000000;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.secretImage {
+    display: block;
+    margin: 0px auto 20px auto;
+    margin-top: 20px;
+    max-width: 100px;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+}
+
+p, li {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #222a34;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+/* ----------------------------------------
+   Responsive Images & Hover Effects
+---------------------------------------- */
+.profile-image {
+    display: block;
+    margin: 0 auto 20px auto;
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    border: 4px solid #eff6ff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    object-fit: cover;
+}
+
+h1:hover {
+    color: #b90f2b;
+}
+
+.clock-container:hover {
+    background-color: #d81d33;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------------
+   Links & Button Interactions
+---------------------------------------- */
+
+button {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    margin: 35px auto 0 auto;
+    background-color: #e07eaa;
+    color: #ffffff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.about {
+    margin-top: 1.5rem;
+    border-top: 1px solid #a59c9c;
+    padding-top: 1rem;
+}
+
+.msg {
+    text-align: center;
+    margin-top: 20%;
+    padding: 10px 14px;
+    background-color: #e07eaa;
+    color: #ffffff;
+    border-radius: 7px;
+    font-size: 16px;
+    box-sizing: content-box;
+    width: fit-content;
+    box-shadow: 0 7px 12px rgba(37, 99, 235, 0.3);
+    position: relative;      
+    top: 50%;            
+    left: 50%;          
+    transform: translate(-50%, -50%); 
+    width: auto;         
+    max-width: 450px;    
+    z-index: 1000;      
+}
+
+button:hover {
+    background-color: #d81d33;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* ----------------------------------------
+   Mobile-Friendly Adjustments
+---------------------------------------- */
+@media (max-width: 600px) {
+    html {
+        padding: 10px;
+    }
+    body {
+        padding: 25px 20px;
+        border-radius: 12px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    img {
+        width: 150px; 
+    }
+}

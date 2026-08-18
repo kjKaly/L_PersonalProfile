@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Personal Profile</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section>
+            <img class="profile-image" src="pfp.jpg" alt="Kasandra Yssabel Liban" width="200" height="200">
+            <h1>Kasandra Yssabel Liban</h1>
+            <p class="shortMsg">Welcome to my personal profile!</p>
+            
+            <button id="abtMeButton" class="button">About Me</button>
+
+            <div class="clock-container">
+                <div>Date and Time:</div>
+                <div id="time-display">00:00:00</div>
+                <div id="date-display">Loading date...</div>
+
+            </div>
+        </section>
+
+        <section id="abtMeSection" class="about hidden">
+            <h2>Education</h2>
+            <ul>
+                <li><strong>Degree:</strong> Bachelor of Science in Computer Science Major in Robotics</li>
+                <li><strong>Year:</strong> 3rd Year Student</li>
+            </ul>
+
+            <h2>Short Biography</h2>
+            <p>I am Kasandra Yssabel Campanero Liban. I'm 21 years old and originally from Urdaneta City, Pangasinan.</p>
+        
+            <h2>Skills</h2>
+            <ul>
+
+                <li><strong>Programming Languages:</strong> C++, Java, Python</li>
+                <li><strong>Web Development:</strong> HTML, CSS, JavaScript</li>
+            </ul>
+
+            <h2>Contact Information</h2>
+            <ul>
+                <li><strong>Facebook:</strong> Kasandra Yssabel Liban</li>
+                <li><strong>Email:</strong> kasyliban5209@gmail.com</li>
+            </ul>
+
+            <button id="msgButton">Message for You</button>
+            <div id="msgForU" class="msg hidden">
+                Hello! You've found a secret message! Keep exploring and have a great day!
+                <img class="secretImage" src="images.jpg" alt="Secret Message" width="100" height="100">
+            </div>
+            
+        </section>
+
+        <script src="script.js"></script>
+
+    </body>
+</html>
