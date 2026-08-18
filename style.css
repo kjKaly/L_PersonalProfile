@@ -1,209 +1,212 @@
-/* ----------------------------------------
-   Global Reset & Background 
----------------------------------------- */
+/* Design tokens ---------------------------------------------------------- */
+:root {
+    --page-background: #e07eaa;
+    --surface: #ffffff;
+    --text: #222a34;
+    --muted-text: #4b5563;
+    --accent: #c8437a;
+    --accent-dark: #a63261;
+    --accent-soft: #fff0f6;
+    --border: #f0c5d7;
+    --shadow: 0 12px 32px rgb(61 22 42 / 16%);
+    --radius: 1rem;
+}
+
+/* Base layout ------------------------------------------------------------ */
+* {
+    box-sizing: border-box;
+}
+
 html {
-    background-color: #e07eaa;
-    padding: 20px;
-    box-sizing: border-box;
-    min-height: 100vh;
-    /* Centers the card vertically and horizontally */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    min-height: 100%;
 }
 
-/* ----------------------------------------
-   Card-Style Container (Using the Body tag)
----------------------------------------- */
 body {
-    background-color: #ffffff;
-    max-width: 650px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    color: #374151;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
+    min-height: 100vh;
+    margin: 0;
+    padding: clamp(1rem, 4vw, 2.5rem);
+    display: grid;
+    place-items: center;
+    background: var(--page-background);
+    color: var(--text);
+    font-family: "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
 }
 
-/* ----------------------------------------
-   Typography & Colors
----------------------------------------- */
-h1 {
-    font-size: 1.8rem;
-    color: #e07eaa;
-    text-align: center;
+body > section {
+    width: min(100%, 40.625rem);
+    background: var(--surface);
+    padding: clamp(1.5rem, 5vw, 2.5rem);
+    box-shadow: var(--shadow);
+}
+
+body > section:first-of-type {
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+body > section:last-of-type:not(.hidden) {
+    border-radius: 0 0 var(--radius) var(--radius);
+}
+
+body:has(.about.hidden) > section:first-of-type {
+    border-radius: var(--radius);
+}
+
+/* Typography ------------------------------------------------------------- */
+h1,
+h2,
+p {
     margin-top: 0;
 }
 
-.clock-container {
-    display: block;
-    width: 100%;
-    max-width: 250px;
-    margin: auto;
-    background-color: #e07eaa;
-    color: #ffffff;
-    padding: 10px 10px;
+h1 {
+    margin-bottom: 0.25rem;
+    color: var(--accent);
+    font-size: clamp(1.75rem, 5vw, 2.25rem);
+    line-height: 1.2;
     text-align: center;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 h2 {
+    margin: 2rem 0 0.75rem;
+    padding-left: 0.75rem;
+    border-left: 0.25rem solid var(--accent);
+    color: var(--accent-dark);
     font-size: 1.25rem;
-    color: #e07eaa;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    border-left: 4px solid #b10294;
-    padding-left: 12px;
+    line-height: 1.3;
 }
 
-.shortMsg {
-    color: #000000;
-    text-align: center;
-    margin-bottom: 1.5rem;
-}
-
-.secretImage {
-    display: block;
-    margin: 0px auto 20px auto;
-    margin-top: 20px;
-    max-width: 100px;
-    height: auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    object-fit: cover;
-}
-
-p, li {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #222a34;
+p,
+li {
+    color: var(--text);
 }
 
 ul {
-    padding-left: 20px;
+    margin: 0;
+    padding-left: 1.25rem;
 }
 
-li {
-    margin-bottom: 8px;
+li + li {
+    margin-top: 0.5rem;
 }
 
-/* ----------------------------------------
-   Responsive Images & Hover Effects
----------------------------------------- */
+.shortMsg {
+    margin-bottom: 1.5rem;
+    color: var(--muted-text);
+    text-align: center;
+}
+
+/* Profile and clock ------------------------------------------------------ */
 .profile-image {
     display: block;
-    margin: 0 auto 20px auto;
-    margin-top: 20px;
-    max-width: 100%;
-    height: auto;
+    width: min(12.5rem, 100%);
+    aspect-ratio: 1;
+    margin: 0 auto 1.25rem;
+    border: 0.25rem solid var(--accent-soft);
     border-radius: 50%;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    border: 4px solid #eff6ff;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
     object-fit: cover;
+    box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 15%);
 }
 
-h1:hover {
-    color: #b90f2b;
+.clock-container {
+    width: min(100%, 17rem);
+    margin: 1.5rem auto 0;
+    padding: 0.875rem 1rem;
+    border-radius: 0.75rem;
+    background: var(--accent);
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 0.25rem 0.75rem rgb(166 50 97 / 25%);
 }
 
-.clock-container:hover {
-    background-color: #d81d33;
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+#time-display {
+    margin: 0.25rem 0;
+    font-size: 1.25rem;
+    font-variant-numeric: tabular-nums;
 }
 
-img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-}
-
-/* ----------------------------------------
-   Links & Button Interactions
----------------------------------------- */
-
+/* Interactive elements --------------------------------------------------- */
 button {
     display: block;
-    width: 100%;
-    max-width: 250px;
-    margin: 35px auto 0 auto;
-    background-color: #e07eaa;
+    width: min(100%, 17rem);
+    margin: 1.5rem auto 0;
+    padding: 0.75rem 1.25rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background: var(--accent);
     color: #ffffff;
-    border: none;
-    padding: 12px 24px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-bottom: 1rem;
+    font: inherit;
+    font-weight: 700;
+    transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
 }
 
+button:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 0.4rem 0.8rem rgb(166 50 97 / 30%);
+    transform: translateY(-0.125rem);
+}
+
+button:focus-visible {
+    outline: 0.2rem solid #111827;
+    outline-offset: 0.2rem;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Collapsible content ---------------------------------------------------- */
 .hidden {
     display: none;
 }
 
 .about {
-    margin-top: 1.5rem;
-    border-top: 1px solid #a59c9c;
+    margin-top: 0;
     padding-top: 1rem;
+    border-top: 1px solid var(--border);
 }
 
 .msg {
+    max-width: 28rem;
+    margin: 1.5rem auto 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--accent-soft);
+    color: var(--text);
     text-align: center;
-    margin-top: 20%;
-    padding: 10px 14px;
-    background-color: #e07eaa;
-    color: #ffffff;
-    border-radius: 7px;
-    font-size: 16px;
-    box-sizing: content-box;
-    width: fit-content;
-    box-shadow: 0 7px 12px rgba(37, 99, 235, 0.3);
-    position: relative;      
-    top: 50%;            
-    left: 50%;          
-    transform: translate(-50%, -50%); 
-    width: auto;         
-    max-width: 450px;    
-    z-index: 1000;      
+    box-shadow: 0 0.25rem 0.75rem rgb(61 22 42 / 12%);
 }
 
-button:hover {
-    background-color: #d81d33;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+.secretImage {
+    display: block;
+    width: 6.25rem;
+    height: 6.25rem;
+    margin: 1rem auto 0;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    box-shadow: 0 0.25rem 0.75rem rgb(0 0 0 / 15%);
 }
 
-/* ----------------------------------------
-   Mobile-Friendly Adjustments
----------------------------------------- */
-@media (max-width: 600px) {
-    html {
-        padding: 10px;
-    }
+@media (max-width: 37.5rem) {
     body {
-        padding: 25px 20px;
-        border-radius: 12px;
+        padding: 0.75rem;
     }
-    h1 {
-        font-size: 1.5rem;
+
+    body > section {
+        padding: 1.5rem 1.25rem;
     }
-    img {
-        width: 150px; 
-    }
-    .msg {
-        font-size: 14px;
-        padding: 8px 10px;
-        top: 30px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }
